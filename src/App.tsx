@@ -2,26 +2,18 @@ import { createSignal } from "solid-js";
 import { invoke } from "@tauri-apps/api/tauri";
 
 function App() {
-  const [greetMsg, setGreetMsg] = createSignal("");
-  const [name, setName] = createSignal("");
+  const [photoPath, setPhotoPath] = createSignal("");
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name: name() }));
+  async function photosLibraryDialog() {
+    setPhotoPath(await invoke("photos_library_dialog"));
   }
 
   return (
     <div class="text-center">
-      <h1>Hello, World!</h1>
-      <input
-        id="greet-input"
-        onChange={(e) => setName(e.currentTarget.value)}
-        placeholder="Enter a name..."
-      />
-      <button type="button" onClick={() => greet()}>
-        Greet
+      <button type="button" onClick={() => photosLibraryDialog()}>
+        Select Photos Library
       </button>
-      <p>{greetMsg()}</p>
+      <p>{photoPath()}</p>
     </div>
   );
 }
