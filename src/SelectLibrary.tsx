@@ -16,9 +16,9 @@ export default function SelectLibrary() {
 
   return (
     <div class="p-4 flex flex-col">
-      <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 border-4 shadow-2xl border-slate-600 rounded-lg flex w-max self-center mb-2">
+      <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 border-4 shadow-2xl border-slate-600 rounded-lg flex w-max self-center mb-2">
         <button
-          class="flex-none mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l-sm"
+          class="flex-none mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-l-sm"
           type="button"
           onClick={() => photosLibraryDialog()}>
           Select Photos Library
@@ -31,10 +31,6 @@ export default function SelectLibrary() {
           <span>{errorMessage()}</span>
         </div>
       </Show>
-
-
-
-      <span class="text-red"></span>
     </div>
   );
 }
