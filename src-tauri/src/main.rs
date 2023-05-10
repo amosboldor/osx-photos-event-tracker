@@ -5,6 +5,9 @@ mod utils;
 
 fn main() {
     tauri::Builder::default()
+        .manage(utils::AppState {
+            photos_library_path: Default::default() 
+        })
         .invoke_handler(tauri::generate_handler![utils::photos_library_dialog])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
